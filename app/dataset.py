@@ -11,7 +11,6 @@ path = kagglehub.dataset_download(
 
 df = pd.read_csv(path / 'top_1000_popular_movies_tmdb.csv', engine='python') # type: ignore
 
-desc_df = df.describe()
+df_cleaned = df.dropna()
 
-# print(df.count())
-print(df.dtypes)
+df_cleaned.to_csv(project_root / 'dataset' / 'top_movies_tmdb_cleaned.csv')

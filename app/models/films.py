@@ -15,12 +15,12 @@ class Film(Base):
 
     title:                 Mapped[str]
     genres:                Mapped[list[str]] = mapped_column(ARRAY(String))
-    overview:              Mapped[str] = mapped_column(nullable=True)
+    overview:              Mapped[str]
     original_language:     Mapped[str]
     production_companies:  Mapped[str]
-    tagline:               Mapped[str] = mapped_column(nullable=True)
+    tagline:               Mapped[str]
 
-    release_date:          Mapped[date] = mapped_column(nullable=True)
+    release_date:          Mapped[date]
 
     vote_average:          Mapped[float]
     vote_count:            Mapped[float]
