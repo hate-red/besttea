@@ -7,8 +7,12 @@ requires-python = ">=3.14"
 dependencies = [
     "ipykernel>=7.3.0",
     "kagglehub>=1.0.2",
+    "matplotlib>=3.11.1",
     "mlflow>=3.16.0",
+    "numpy>=2.5.2",
     "optuna>=4.9.0",
+    "pandas>=3.0.5",
     "scikit-learn>=1.9.1",
     "seaborn>=0.13.2",
+    "sentence-transformers>=6.1.0",
 ]
