@@ -8,8 +8,8 @@ dataset_name = 'films.csv'
 
 # dataset without duplicates and NA values 
 # but not suitable for model training
-dataest_cleaned_name = 'films_cleaned.pickle'
+dataset_cleaned_name = 'films_cleaned.pickle'
 
 # dataset with text values encoded, categorical values encoded,
 # and numerical values normalized
-dataest_preprocessed_name = 'films_preprocessed.pickle'
+dataset_preprocessed_name = 'films_preprocessed.pickle'
