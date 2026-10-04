@@ -19,5 +19,5 @@ dataset_preprocessed_name = 'films_preprocessed.pickle'
 
 models_dir = module_dir / 'models'
 
-encoder_name = 'encoder'
-decoder_name = 'decoder'
+encoder_name = 'encoder.pth'
+decoder_name = 'decoder.pth'
