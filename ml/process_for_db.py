@@ -30,9 +30,9 @@ with torch.no_grad():
     for x, _ in dataset:
         embedding = model(torch.tensor(x))
         embeddings.append(embedding.numpy())
-    
+
 df_cleaned = pd.read_pickle(dataset_dir / dataset_cleaned_name)
-df_cleaned['embedding'] = pd.Series(embeddings)
+df_cleaned['embedding'] = pd.Series(embeddings, index=df_preprocessed.index)
 df_cleaned.to_pickle(dataset_dir / dataset_with_embeddings_name)
 
 print(df_cleaned.info())
