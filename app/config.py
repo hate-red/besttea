@@ -27,3 +27,6 @@ def get_db_url() -> str:
         f'postgresql+asyncpg://{settings.DB_USER}:{settings.DB_PASSWORD}@'
         f'{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}'
     )
+
+
+EMBEDDING_LENGTH = 128
