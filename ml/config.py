@@ -16,6 +16,9 @@ dataset_cleaned_name = 'films_cleaned.pickle'
 # and numerical values normalized
 dataset_preprocessed_name = 'films_preprocessed.pickle'
 
+# cleaned dataset with embedding column for db storage
+dataset_with_embeddings_name = 'films_with_embeddings.pickle'
+
 
 models_dir = module_dir / 'models'
 
