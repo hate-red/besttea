@@ -1,4 +1,5 @@
-from sqlalchemy import select
+from sqlalchemy import select, delete
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.database import async_session_maker
 
@@ -26,26 +27,32 @@ class BaseRepository:
 
 
     @classmethod
-    async def update(cls, instance) -> None:
+    async def create_one(cls, **values) -> None:
         async with async_session_maker() as session:
             async with session.begin():
-                session.add(instance)
+                new_instance = cls.model(**values) # type: ignore
+                session.add(new_instance)
 
                 try:
                     await session.commit()
-                except Exception as e:
+                except SQLAlchemyError as e:
                     await session.rollback()
                     raise e
+
+                return new_instance
 
 
     @classmethod
     async def delete(cls, instance) -> None:
         async with async_session_maker() as session:
-            async with session.begin():
-                await session.delete(instance)
-                
-                try:
-                    await session.commit()
-                except Exception as e:
-                    await session.rollback()
-                    raise e
+                async with session.begin():
+                    query = delete(cls.model).filter_by(**filter_by) # type: ignore
+                    result = await session.execute(query)
+                    
+                    try:
+                        await session.commit()
+                    except SQLAlchemyError as e:
+                        await session.rollback()
+                        raise e
+                    
+                    return result.rowcount # type: ignore
