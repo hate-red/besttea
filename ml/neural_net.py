@@ -3,7 +3,7 @@ import torch.nn as nn
 
 
 class Encoder(nn.Module):
-    def __init__(self, hidden_dim: int = 128) -> None:
+    def __init__(self, hidden_dim: int) -> None:
         super().__init__()
 
         self.encoder = nn.Sequential(
@@ -20,7 +20,7 @@ class Encoder(nn.Module):
 
 
 class Decoder(nn.Module):
-    def __init__(self, hidden_dim: int = 128) -> None:
+    def __init__(self, hidden_dim: int) -> None:
         super().__init__()
 
         self.decoder = nn.Sequential(

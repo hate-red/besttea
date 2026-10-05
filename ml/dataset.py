@@ -9,12 +9,12 @@ class EncoderDataset(Dataset):
         self.numeric_df = self.df.select_dtypes(include=['int', 'float'])
         self.array_df = self.df.select_dtypes(include='object')
 
-        numetic_data = self.numeric_df.to_numpy()
+        numeric_data = self.numeric_df.to_numpy()
         array_data = np.array([
             *self.array_df.apply(lambda x: np.concatenate(x.to_numpy()), axis=1)
         ])
 
-        self.data = np.concatenate((numetic_data, array_data), axis=1, dtype=np.float32)
+        self.data = np.concatenate((numeric_data, array_data), axis=1, dtype=np.float32)
 
     def __len__(self):
         return len(self.data)
